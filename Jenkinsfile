@@ -10,5 +10,5 @@ stage('compile package'){
 mvnHome = tool name: 'Maven', type: 'maven'
 sh "${mvnHome}/bin/mvn package"
 echo 'started compiling'
-
+}
 }
