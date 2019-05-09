@@ -7,8 +7,8 @@ stage('git checkout process'){
 }
 
 stage('compile package'){
-mvnHome = tool name: 'Maven', type: 'maven'
-sh "${mvnHome}/bin/mvn package"
+mvnHome = '/opt/apache-maven/bin'
+sh "${mvnHome}/mvn package"
 echo 'started compiling'
 }
 }
