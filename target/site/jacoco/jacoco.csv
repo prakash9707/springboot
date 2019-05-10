@@ -1,0 +1,6 @@
+GROUP,PACKAGE,CLASS,INSTRUCTION_MISSED,INSTRUCTION_COVERED,BRANCH_MISSED,BRANCH_COVERED,LINE_MISSED,LINE_COVERED,COMPLEXITY_MISSED,COMPLEXITY_COVERED,METHOD_MISSED,METHOD_COVERED
+Java Brains Course API,io.javabrains.springbootstarter,Addition,0,7,0,0,0,2,0,2,0,2
+Java Brains Course API,io.javabrains.springbootstarter,CourseApiApp,8,0,0,0,3,0,2,0,2,0
+Java Brains Course API,io.javabrains.springbootstarter.Employee,Employee,33,0,0,0,14,0,7,0,7,0
+Java Brains Course API,io.javabrains.springbootstarter.Employee,EmployeeController,25,0,0,0,2,0,2,0,2,0
+Java Brains Course API,io.javabrains.springbootstarter.hello,HelloController,3,0,0,0,1,0,1,0,1,0
