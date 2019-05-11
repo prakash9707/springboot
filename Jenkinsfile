@@ -11,4 +11,8 @@ mvnHome = '/opt/apache-maven/bin'
 sh "'${mvnHome}/mvn' -Dmaven clean package"
 echo 'started compiling'
 }
+
+stage("Email Notification"){
+  emailext body: 'Hi text msg', subject: 'Mail from Jenkins', to: 'prakashpp666666@gmail.com'
+}
 }
