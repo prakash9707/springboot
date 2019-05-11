@@ -20,16 +20,20 @@ echo 'started compiling'
     }
   }
   
-  stage("Quality Gate"){
-          timeout(time: 1, unit: 'HOURS') {
-              def qg = waitForQualityGate()
-              if (qg.status != 'OK') {
-                  emailext body: 'Your code was failed due to sonarqube quality gate', subject: 'Jenkins Failed Report', to: 'prakashpp666666@gmail.com'
-                  error "Pipeline aborted due to quality gate failure: ${qg.status}"
-                  
-              }
-          }
-      }        
+  stage('Sonar:QG') {
+            steps {
+                **sleep(10)  /* Added 10 sec sleep that was suggested in few places*/**
+                script{
+                    timeout(time: 10, unit: 'MINUTES') {
+                        def qg = waitForQualityGate abortPipeline: true
+                        if (qg.status != 'OK') {
+                            echo "Status: ${qg.status}"
+                            error "Pipeline aborted due to quality gate failure: ${qg.status}"
+                        }
+                    }
+                }
+            }
+        }       
   
   stage('Email Notification'){
     emailext body: 'Your code was succesfully build', subject: 'Jenkins Success Report', to: 'prakashpp666666@gmail.com'
