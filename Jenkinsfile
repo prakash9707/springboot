@@ -11,4 +11,8 @@ mvnHome = '/opt/apache-maven/bin'
 sh "${mvnHome}/mvn package"
 echo 'started compiling'
 }
+  
+  stage('Email Notification'){
+    emailext body: 'hai', subject: 'jenkins', to: 'prakashpp666666@gmail.com'
+  }
 }
