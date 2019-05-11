@@ -13,6 +13,6 @@ echo 'started compiling'
 }
   
   stage('Email Notification'){
-    emailext body: 'hai', subject: 'jenkins', to: 'prakash.a@purpleslate.in'
+    emailext body: 'Hai', subject: 'Jenkins', to: 'prakashpp666666@gmail.com'
   }
 }
