@@ -7,18 +7,14 @@ stage('git checkout process'){
 }
 
 stage('compile package'){
-withMaven(
-        // Maven installation declared in the Jenkins "Global Tool Configuration"
-        maven: 'Maven',
-        // Maven settings.xml file defined with the Jenkins Config File Provider Plugin
-        // Maven settings and global settings can also be defined in Jenkins Global Tools Configuration
-        mavenSettingsConfig: 'my-maven-settings',
-        mavenLocalRepo: '.repository') {
- 
-      // Run the maven build
-      sh "mvn clean install"
- 
+  def jdkHome = '/usr/lib/java/jdk1.8.0_211'
+  def mvnHome = '/opt/apache-maven'
+  withEnv(["JAVA_HOME=${jdkHome}", "MAVEN_HOME=${mvnHome}", "PATH+MAVEN=${mvnHome}/bin"]){
+    artifactoryMaven {
+      pom = "pom.xml"
+      goals = "clean install"
     }
+  }
 }
   
   stage('SonarQube analysis') {
