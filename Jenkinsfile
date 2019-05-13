@@ -6,14 +6,8 @@ stage('git checkout process'){
 }
 
 stage('compile package'){
-  def jdkHome = '/usr/lib/java/jdk1.8.0_211'
-  def mvnHome = '/opt/apache-maven'
-  withEnv(["JAVA_HOME=${jdkHome}", "MAVEN_HOME=${mvnHome}", "PATH+MAVEN=${mvnHome}/bin"]){
-    artifactoryMaven {
-      pom = "pom.xml"
-      goals = "clean install"
-    }
-  }
+  def mvnTool = tool name: 'Maven', type: 'maven'
+  sh "${mvnTool}/bin/mvn clean install" 
 }
   
   stage('SonarQube analysis') {
