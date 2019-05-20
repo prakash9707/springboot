@@ -1,7 +1,7 @@
 node{
 stage('git checkout process'){
   echo 'started checkout'
-  git 'https://github.com/prakash9707/springboot'
+  git 'https://github.com/prakash9707/new'
   echo 'completed sucessfully'
 }
 
